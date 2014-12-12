@@ -1,7 +1,7 @@
 set(DOCUMENTATION "This modules contains an ImageIO class to read or write the
 FDF image format.")
 
-itk_module(ITKIOFDF
+itk_module(IOFDF
   ENABLE_SHARED
   DEPENDS
     ITKNIFTI

@@ -54,7 +54,7 @@ FDFImageIOFactory::GetDescription() const
 
 static bool FDFImageIOFactoryHasBeenRegistered;
 
-void ITKIOFDF_EXPORT FDFImageIOFactoryRegister__Private(void)
+void IOFDF_EXPORT FDFImageIOFactoryRegister__Private(void)
 {
   if( ! FDFImageIOFactoryHasBeenRegistered )
     {
