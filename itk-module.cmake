@@ -11,4 +11,5 @@ itk_module(IOFDF
     ITKTransform
   DESCRIPTION
     "${DOCUMENTATION}"
+  EXCLUDE_FROM_DEFAULT
 )
