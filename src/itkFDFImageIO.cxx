@@ -597,4 +597,3 @@ void FDFImageIO::Write(const void* /* buffer */)
 }
 
 } // end namespace itk
-

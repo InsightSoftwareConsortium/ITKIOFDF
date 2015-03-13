@@ -20,7 +20,7 @@
 #include "itkFDFImageIO.h"
 #include "itkVersion.h"
 
-  
+
 namespace itk
 {
 FDFImageIOFactory::FDFImageIOFactory()
@@ -31,18 +31,18 @@ FDFImageIOFactory::FDFImageIOFactory()
                          1,
                          CreateObjectFunction<FDFImageIO>::New());
 }
-  
+
 FDFImageIOFactory::~FDFImageIOFactory()
 {
 }
 
-const char* 
+const char*
 FDFImageIOFactory::GetITKSourceVersion(void) const
 {
   return ITK_SOURCE_VERSION;
 }
 
-const char* 
+const char*
 FDFImageIOFactory::GetDescription() const
 {
   return "FDF ImageIO Factory, allows the loading of Varian FDF images into Insight";
@@ -65,4 +65,3 @@ void IOFDF_EXPORT FDFImageIOFactoryRegister__Private(void)
 
 
 } // end namespace itk
-

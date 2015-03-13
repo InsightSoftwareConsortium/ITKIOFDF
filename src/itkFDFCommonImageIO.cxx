@@ -17,6 +17,9 @@
 
 #include "itkFDFCommonImageIO.h"
 
+namespace itk
+{
+
 // Remove a particular type of character from a string
 std::string RemoveCharacters( std::string line, char character )
 {
@@ -68,4 +71,5 @@ std::string ParseLine(std::string line)
     }
 
     return line;
+}
 }

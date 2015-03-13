@@ -14,8 +14,8 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-#ifndef __itkFDFImageIOFactory_h
-#define __itkFDFImageIOFactory_h
+#ifndef itkFDFImageIOFactory_h
+#define itkFDFImageIOFactory_h
 #include "IOFDFExport.h"
 #include "itkObjectFactoryBase.h"
 #include "itkImageIOBase.h"
@@ -28,17 +28,17 @@ namespace itk
  */
 class IOFDF_EXPORT FDFImageIOFactory : public ObjectFactoryBase
 {
-public:  
+public:
   /** Standard class typedefs. */
-  typedef FDFImageIOFactory   Self;
-  typedef ObjectFactoryBase  Superclass;
-  typedef SmartPointer<Self>  Pointer;
+  typedef FDFImageIOFactory         Self;
+  typedef ObjectFactoryBase         Superclass;
+  typedef SmartPointer<Self>        Pointer;
   typedef SmartPointer<const Self>  ConstPointer;
-  
+
   /** Class methods used to interface with the registered factories. */
   virtual const char* GetITKSourceVersion(void) const;
   virtual const char* GetDescription(void) const;
-  
+
   /** Method for class instantiation. */
   itkFactorylessNewMacro(Self);
 
@@ -61,8 +61,8 @@ private:
   void operator=(const Self&); //purposely not implemented
 
 };
-  
-  
+
+
 } // end namespace itk
 
 #endif
