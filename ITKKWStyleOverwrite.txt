@@ -1,0 +1,3 @@
+test/.*\.cxx Namespace Disable
+/.*\.cxx Header Disable
+/.*\.h Header Disable

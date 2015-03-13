@@ -15,8 +15,8 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifndef __itkFDFImageIO_h
-#define __itkFDFImageIO_h
+#ifndef itkFDFImageIO_h
+#define itkFDFImageIO_h
 
 #include "itkImageIOBase.h"
 

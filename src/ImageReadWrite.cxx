@@ -13,16 +13,17 @@
 
 int main( int argc, char ** argv )
 {
-  typedef float      PixelType;
+  typedef float               PixelType;
   const   unsigned int        Dimension = 2;
-  typedef itk::Image< PixelType, Dimension >    ImageType;
-  typedef itk::ImageFileReader< ImageType >  ReaderType;
-  typedef itk::ImageToVTKImageFilter< ImageType > ImageToVTKType;
+
+  typedef itk::Image< PixelType, Dimension >               ImageType;
+  typedef itk::ImageFileReader< ImageType >                ReaderType;
+  typedef itk::ImageToVTKImageFilter< ImageType >          ImageToVTKType;
   typedef itk::NormalizeImageFilter< ImageType, ImageType> NormalizeFilter;
-  typedef itk::ChangeInformationImageFilter< ImageType > ChangeInformationFilter;
+  typedef itk::ChangeInformationImageFilter< ImageType >   ChangeInformationFilter;
 
   // Register FDF Factory
-  itk::FDFImageIOFactory::RegisterOneFactory(); 
+  itk::FDFImageIOFactory::RegisterOneFactory();
 
   ReaderType::Pointer reader = ReaderType::New();
   NormalizeFilter::Pointer normalizer = NormalizeFilter::New();
@@ -47,7 +48,7 @@ int main( int argc, char ** argv )
   movingChange->CenterImageOn();
 
 
-  vtkRenderWindowInteractor* iren = vtkRenderWindowInteractor::New(); 
+  vtkRenderWindowInteractor* iren = vtkRenderWindowInteractor::New();
 
   ImageToVTKType::Pointer bridge = ImageToVTKType::New();
   bridge->SetInput( movingChange->GetOutput() );
@@ -66,6 +67,3 @@ int main( int argc, char ** argv )
 
   return 0;
 }
-
-
-
