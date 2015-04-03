@@ -6,7 +6,7 @@
 
 #include "itkImage.h"
 
-int itkFDFImageIOTest( int argc, char ** argv )
+int itkFDFImageIOTest( int argc, char * argv[] )
 {
   if(argc < 3)
     {
