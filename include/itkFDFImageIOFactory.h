@@ -50,7 +50,7 @@ public:
   static void RegisterOneFactory(void)
   {
     FDFImageIOFactory::Pointer FdfFactory = FDFImageIOFactory::New();
-    ObjectFactoryBase::RegisterFactory(FdfFactory);
+    ObjectFactoryBase::RegisterFactoryInternal(FdfFactory);
   }
 
 protected:
