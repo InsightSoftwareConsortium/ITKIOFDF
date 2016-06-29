@@ -105,8 +105,7 @@ protected:
   int ReadHeader(const char *FileNameToRead);
 
 private:
-  FDFImageIO(const Self&); //purposely not implemented
-  void operator=(const Self&); //purposely not implemented
+  ITK_DISALLOW_COPY_AND_ASSIGN(FDFImageIO);
 
   void SwapBytesIfNecessary(void* buffer, unsigned long numberOfPixels);
 
