@@ -63,8 +63,8 @@ void StringToVector (std::string value, std::vector<T>& values)
 
     T element;
 
-    for(unsigned int i=0; i<tokens.size(); i++) {
-        ConvertFromString(tokens[i], element);
+    for(auto & token : tokens) {
+        ConvertFromString(token, element);
         values.push_back(element);
     }
 }
