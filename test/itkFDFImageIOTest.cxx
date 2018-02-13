@@ -30,7 +30,7 @@ int itkFDFImageIOTest( int argc, char * argv[] )
     return EXIT_FAILURE;
     }
   using PixelType = float;
-  const   unsigned int        Dimension = 2;
+  constexpr unsigned int Dimension = 2;
 
   using ImageType = itk::Image< PixelType, Dimension >;
   using ReaderType = itk::ImageFileReader< ImageType >;
