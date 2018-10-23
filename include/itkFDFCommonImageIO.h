@@ -37,7 +37,7 @@ void Tokenize(const std::string& str, std::vector<std::string>& tokens, const st
 
 std::string ParseLine(std::string line);
 
-template <class T>
+template <typename T>
 void ConvertFromString (std::string s, T &value)
 {
     std::stringstream str;
@@ -45,7 +45,7 @@ void ConvertFromString (std::string s, T &value)
     str >> value;
 }
 
-template <class T>
+template <typename T>
 void StringToVector (std::string value, std::vector<T>& values)
 {
     std::vector<std::string> tokens;
@@ -69,7 +69,7 @@ void StringToVector (std::string value, std::vector<T>& values)
     }
 }
 
-template <class T>
+template <typename T>
 void PrintVector (std::ostream& os, std::string name, const std::vector<T>& vect)
 {
   int size = vect.size();
