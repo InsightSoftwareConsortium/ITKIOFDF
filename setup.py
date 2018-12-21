@@ -20,7 +20,7 @@ setup(
     package_dir={'itk': 'itk'},
     download_url=r'https://github.com/InsightSoftwareConsortium/ITKFDFImageIO',
     description=r'ITK `ImageIO` class to read or write the FDF image format',
-    long_description='itkFDFImageIO provides an `ImageIO` class to read or'
+    long_description='itk-fdfimageio provides an `ImageIO` class to read or '
                      'write the FDF image format.',
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
