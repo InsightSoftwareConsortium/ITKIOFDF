@@ -12,15 +12,15 @@ except ImportError:
     sys.exit(1)
 
 setup(
-    name='itk-fdfimageio',
+    name='itk-iofdf',
     version='1.0.0',
     author='Glenn Pierce',
     author_email='glennpierce@gmail.com',
     packages=['itk'],
     package_dir={'itk': 'itk'},
-    download_url=r'https://github.com/InsightSoftwareConsortium/ITKFDFImageIO',
+    download_url=r'https://github.com/InsightSoftwareConsortium/ITKIOFDF',
     description=r'ITK `ImageIO` class to read or write the FDF image format',
-    long_description='itk-fdfimageio provides an `ImageIO` class to read or '
+    long_description='itk-iofdf provides an `ImageIO` class to read or '
                      'write the FDF image format.',
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
@@ -43,7 +43,7 @@ setup(
         ],
     license='Apache',
     keywords='ITK InsightToolkit FDF',
-    url=r'https://github.com/InsightSoftwareConsortium/ITKFDFImageIO',
+    url=r'https://github.com/InsightSoftwareConsortium/ITKIOFDF',
     install_requires=[
         r'itk'
     ]
