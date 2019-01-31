@@ -43,6 +43,7 @@ the *LICENSE* file for details.
 Acknowledgements
 ----------------
 
-Initial work was done by `Glenn Pierce <mailto:glennpierce@gmail.com>`_; the
-code was brought up to current ITK standards by `Nicholas Tustison <mailto:mtustison@gmail.com>`_;
-and it was converted to an ITK Remote module by `Kent Williams <mailto:norman-k-williams@uiowa.edu>`_.
+Initial work was done by `Glenn Pierce <mailto:glennpierce@gmail.com>`_\; the
+code was brought up to current ITK standards by
+`Nicholas Tustison <mailto:ntustison@gmail.com>`_\; and it was converted to an
+ITK Remote module by `Kent Williams <mailto:norman-k-williams@uiowa.edu>`_.
