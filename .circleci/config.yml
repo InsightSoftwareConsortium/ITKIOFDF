@@ -1,12 +1,12 @@
 version: 2
 jobs:
   build-and-test:
-    working_directory: /ITKFDFImageIO-build
+    working_directory: /ITKIOFDF-build
     docker:
       - image: insighttoolkit/module-ci:latest
     steps:
       - checkout:
-          path: /ITKFDFImageIO
+          path: /ITKIOFDF
       - run:
           name: Fetch CTest driver script
           command: |
@@ -17,12 +17,12 @@ jobs:
             SHASNIP=$(echo $CIRCLE_SHA1 | cut -c1-7)
             cat > dashboard.cmake << EOF
             set(CTEST_SITE "CircleCI")
-            set(CTEST_BUILD_NAME "External-ITKFDFImageIO-${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}-${SHASNIP}")
+            set(CTEST_BUILD_NAME "External-ITKIOFDF-${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}-${SHASNIP}")
             set(CTEST_BUILD_CONFIGURATION "MinSizeRel")
             set(CTEST_CMAKE_GENERATOR "Unix Makefiles")
             set(CTEST_BUILD_FLAGS: "-j5")
-            set(CTEST_SOURCE_DIRECTORY /ITKFDFImageIO)
-            set(CTEST_BINARY_DIRECTORY /ITKFDFImageIO-build)
+            set(CTEST_SOURCE_DIRECTORY /ITKIOFDF)
+            set(CTEST_BINARY_DIRECTORY /ITKIOFDF-build)
             set(dashboard_model Experimental)
             set(dashboard_no_clean 1)
             set(dashboard_cache "
@@ -37,11 +37,10 @@ jobs:
           command: |
             ctest -j 2 -VV -S dashboard.cmake
   package:
-    working_directory: ~/
+    working_directory: ~/ITKIOFDF
     machine: true
     steps:
-      - checkout:
-          path: ~/ITKFDFImageIO
+      - checkout
       - run:
           name: Fetch build script
           command: |
@@ -51,7 +50,6 @@ jobs:
           name: Build Python packages
           no_output_timeout: 1.0h
           command: |
-            cd ~/ITKFDFImageIO
             ./dockcross-manylinux-download-cache-and-build-module-wheels.sh
       - store_artifacts:
           path: dist

@@ -1,14 +1,14 @@
-ITKFDFImageIO
-=============
+ITKIOFDF
+========
 
-.. |CircleCI| image:: https://circleci.com/gh/InsightSoftwareConsortium/ITKFDFImageIO.svg?style=shield
-    :target: https://circleci.com/gh/InsightSoftwareConsortium/ITKFDFImageIO
+.. |CircleCI| image:: https://circleci.com/gh/InsightSoftwareConsortium/ITKIOFDF.svg?style=shield
+    :target: https://circleci.com/gh/InsightSoftwareConsortium/ITKIOFDF
 
-.. |TravisCI| image:: https://travis-ci.org/InsightSoftwareConsortium/ITKFDFImageIO.svg?branch=master
-    :target: https://travis-ci.org/InsightSoftwareConsortium/ITKFDFImageIO
+.. |TravisCI| image:: https://travis-ci.org/InsightSoftwareConsortium/ITKIOFDF.svg?branch=master
+    :target: https://travis-ci.org/InsightSoftwareConsortium/ITKIOFDF
 
-.. |AppVeyor| image:: https://img.shields.io/appveyor/ci/itkrobot/itkfdfimageio.svg
-    :target: https://ci.appveyor.com/project/itkrobot/itkfdfimageio
+.. |AppVeyor| image:: https://img.shields.io/appveyor/ci/itkrobot/itkiofdf.svg
+    :target: https://ci.appveyor.com/project/itkrobot/itkiofdf
 
 =========== =========== ===========
    Linux      macOS       Windows
