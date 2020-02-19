@@ -47,86 +47,100 @@ public:
   /** Run-time type information (and related methods). */
   itkTypeMacro(FDFImageIO, ImageIOBase);
 
-  bool SupportsDimension( unsigned long dim ) override
+  bool
+  SupportsDimension(unsigned long dim) override
+  {
+    if (dim == 2 || dim == 3)
     {
-    if( dim == 2 || dim == 3 )
-      {
       return true;
-      }
-    else
-      {
-      return false;
-      }
     }
+    else
+    {
+      return false;
+    }
+  }
 
 
   /*-------- This part of the interface deals with reading data. ------ */
 
   /** Determine the file type. Returns true if this ImageIO can read the
    * file specified. */
-  bool CanReadFile(const char*) override;
+  bool
+  CanReadFile(const char *) override;
 
   /** Set the spacing and diemention information for the set filename. */
-  void ReadImageInformation() override;
+  void
+  ReadImageInformation() override;
 
   /** Get the type of the pixel.  */
-//   virtual const std::type_info& GetPixelType() const;
+  //   virtual const std::type_info& GetPixelType() const;
 
   /** Reads the data from disk into the memory buffer provided. */
-  void Read(void* buffer) override;
+  void
+  Read(void * buffer) override;
 
   /** Reads 3D data from multiple files assuming one slice per file. */
-  virtual void ReadVolume(void* buffer);
+  virtual void
+  ReadVolume(void * buffer);
 
   /** Compute the size (in bytes) of the components of a pixel. For
    * example, and RGB pixel of unsigned char would have a
    * component size of 1 byte. */
-//   virtual unsigned int GetComponentSize() const;
+  //   virtual unsigned int GetComponentSize() const;
 
   /*-------- This part of the interfaces deals with writing data. ----- */
 
   /** Determine the file type. Returns true if this ImageIO can read the
    * file specified. */
-  bool CanWriteFile(const char*) override;
+  bool
+  CanWriteFile(const char *) override;
 
   /** Writes the spacing and dimentions of the image.
    * Assumes SetFileName has been called with a valid file name. */
-  void WriteImageInformation() override;
+  void
+  WriteImageInformation() override;
 
   /** Writes the data to disk from the memory buffer provided. Make sure
    * that the IORegion has been set properly. */
-  void Write(const void* buffer) override;
+  void
+  Write(const void * buffer) override;
 
 protected:
   FDFImageIO();
   ~FDFImageIO() override;
-  void PrintSelf(std::ostream& os, Indent indent) const override;
+  void
+  PrintSelf(std::ostream & os, Indent indent) const override;
 
-  void WriteSlice(std::string& fileName, const void* buffer);
+  void
+  WriteSlice(std::string & fileName, const void * buffer);
 
-  int ReadHeader(const char *FileNameToRead);
+  int
+  ReadHeader(const char * FileNameToRead);
 
 private:
-  void SwapBytesIfNecessary(void* buffer, unsigned long numberOfPixels);
+  void
+  SwapBytesIfNecessary(void * buffer, unsigned long numberOfPixels);
 
   // Position after ReadImageInformation.
   size_t m_InputPosition;
 
-  std::string          m_SpatialRank;
-  std::string          m_Checksum;
-  std::string          m_Bits;
-  std::vector<int>     m_Size;
-  std::vector<float>   m_Location;
-  std::vector<float>   m_Span;
-  std::vector<float>   m_Roi;
+  std::string        m_SpatialRank;
+  std::string        m_Checksum;
+  std::string        m_Bits;
+  std::vector<int>   m_Size;
+  std::vector<float> m_Location;
+  std::vector<float> m_Span;
+  std::vector<float> m_Roi;
 };
 
 } // end namespace itk
 
 
-#define RAISE_EXCEPTION() \
-        { ExceptionObject exception(__FILE__, __LINE__); \
-        exception.SetDescription("File cannot be read"); \
-        throw exception; }
+#define RAISE_EXCEPTION()                                                                                              \
+  {                                                                                                                    \
+    ExceptionObject exception(__FILE__, __LINE__);                                                                     \
+    exception.SetDescription("File cannot be read");                                                                   \
+    throw exception;                                                                                                   \
+  }
 
 #endif

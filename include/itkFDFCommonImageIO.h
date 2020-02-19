@@ -31,61 +31,70 @@
 namespace itk
 {
 
-std::string RemoveCharacters( std::string, char );
+std::string
+RemoveCharacters(std::string, char);
 
-void Tokenize(const std::string& str, std::vector<std::string>& tokens, const std::string& delimiters = " ");
+void
+Tokenize(const std::string & str, std::vector<std::string> & tokens, const std::string & delimiters = " ");
 
-std::string ParseLine(std::string line);
+std::string
+ParseLine(std::string line);
 
 template <typename T>
-void ConvertFromString (std::string s, T &value)
+void
+ConvertFromString(std::string s, T & value)
 {
-    std::stringstream str;
-    str << s;
-    str >> value;
+  std::stringstream str;
+  str << s;
+  str >> value;
 }
 
 template <typename T>
-void StringToVector (std::string value, std::vector<T>& values)
+void
+StringToVector(std::string value, std::vector<T> & values)
 {
-    std::vector<std::string> tokens;
+  std::vector<std::string> tokens;
 
-    // value consists of something like {256,256}
-    std::string::size_type startBracketPosition = value.find_first_of("{", 0);
-    std::string::size_type endBracketPosition = value.find_first_of("}", startBracketPosition);
+  // value consists of something like {256,256}
+  std::string::size_type startBracketPosition = value.find_first_of("{", 0);
+  std::string::size_type endBracketPosition = value.find_first_of("}", startBracketPosition);
 
-    if ( startBracketPosition != std::string::npos && endBracketPosition != std::string::npos) {
-        std::string elements = value.substr(startBracketPosition + 1, endBracketPosition - startBracketPosition - 1);
+  if (startBracketPosition != std::string::npos && endBracketPosition != std::string::npos)
+  {
+    std::string elements = value.substr(startBracketPosition + 1, endBracketPosition - startBracketPosition - 1);
 
 
-        Tokenize(elements, tokens, ",");
-    }
+    Tokenize(elements, tokens, ",");
+  }
 
-    T element;
+  T element;
 
-    for(auto & token : tokens) {
-        ConvertFromString(token, element);
-        values.push_back(element);
-    }
+  for (auto & token : tokens)
+  {
+    ConvertFromString(token, element);
+    values.push_back(element);
+  }
 }
 
 template <typename T>
-void PrintVector (std::ostream& os, std::string name, const std::vector<T>& vect)
+void
+PrintVector(std::ostream & os, std::string name, const std::vector<T> & vect)
 {
   int size = vect.size();
 
   os << name << " {";
 
-  for(int i=0; i < size; i++) {
-      os << vect[i];
+  for (int i = 0; i < size; i++)
+  {
+    os << vect[i];
 
-      if (i < size - 1)
-        os << ", ";
+    if (i < size - 1)
+      os << ", ";
   }
 
   os << "}" << std::endl;
 }
 
-}
+} // namespace itk
 
 #endif
