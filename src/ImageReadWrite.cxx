@@ -28,59 +28,61 @@
 
 #include "itkImage.h"
 
-int main( int argc, char ** argv )
+int
+main(int argc, char ** argv)
 {
   using PixelType = float;
   constexpr unsigned int Dimension = 2;
 
-  using ImageType = itk::Image< PixelType, Dimension >;
-  using ReaderType = itk::ImageFileReader< ImageType >;
-  using ImageToVTKType = itk::ImageToVTKImageFilter< ImageType >;
-  using NormalizeFilter = itk::NormalizeImageFilter< ImageType, ImageType>;
-  using ChangeInformationFilter = itk::ChangeInformationImageFilter< ImageType >;
+  using ImageType = itk::Image<PixelType, Dimension>;
+  using ReaderType = itk::ImageFileReader<ImageType>;
+  using ImageToVTKType = itk::ImageToVTKImageFilter<ImageType>;
+  using NormalizeFilter = itk::NormalizeImageFilter<ImageType, ImageType>;
+  using ChangeInformationFilter = itk::ChangeInformationImageFilter<ImageType>;
 
   // Register FDF Factory
   itk::FDFImageIOFactory::RegisterOneFactory();
 
-  ReaderType::Pointer reader = ReaderType::New();
-  NormalizeFilter::Pointer normalizer = NormalizeFilter::New();
+  ReaderType::Pointer              reader = ReaderType::New();
+  NormalizeFilter::Pointer         normalizer = NormalizeFilter::New();
   ChangeInformationFilter::Pointer movingChange = ChangeInformationFilter::New();
 
-  reader->SetFileName( "/home/glenn/development/reader/test.fdf" );
+  reader->SetFileName("/home/glenn/development/reader/test.fdf");
 
-  try {
-      reader->Update();
-  }
-  catch( itk::ExceptionObject & exp )
+  try
   {
-      std::cerr << "Exception caught" << std::endl;
-      std::cerr << exp << std::endl;
+    reader->Update();
+  }
+  catch (itk::ExceptionObject & exp)
+  {
+    std::cerr << "Exception caught" << std::endl;
+    std::cerr << exp << std::endl;
   }
 
   std::cout << reader << std::endl;
 
-  normalizer->SetInput( reader->GetOutput() );
+  normalizer->SetInput(reader->GetOutput());
 
   movingChange->SetInput(normalizer->GetOutput());
   movingChange->CenterImageOn();
 
 
-  vtkRenderWindowInteractor* iren = vtkRenderWindowInteractor::New();
+  vtkRenderWindowInteractor * iren = vtkRenderWindowInteractor::New();
 
   ImageToVTKType::Pointer bridge = ImageToVTKType::New();
-  bridge->SetInput( movingChange->GetOutput() );
+  bridge->SetInput(movingChange->GetOutput());
 
-  vtkImageViewer *viewer = vtkImageViewer::New();
-  viewer->SetInput( bridge->GetOutput() );
+  vtkImageViewer * viewer = vtkImageViewer::New();
+  viewer->SetInput(bridge->GetOutput());
   viewer->SetColorWindow(1);
   viewer->SetColorLevel(0.1);
-  //viewer->SetupInteractor(iren);
+  // viewer->SetupInteractor(iren);
 
-  while(1)
-      viewer->Render();
+  while (1)
+    viewer->Render();
 
   viewer->Delete();
-  //iren->Delete();
+  // iren->Delete();
 
   return 0;
 }
