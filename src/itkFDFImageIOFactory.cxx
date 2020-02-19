@@ -26,24 +26,18 @@ namespace itk
 {
 FDFImageIOFactory::FDFImageIOFactory()
 {
-  this->RegisterOverride("itkImageIOBase",
-                         "itkFDFImageIO",
-                         "FDF Image IO",
-                         1,
-                         CreateObjectFunction<FDFImageIO>::New());
+  this->RegisterOverride("itkImageIOBase", "itkFDFImageIO", "FDF Image IO", 1, CreateObjectFunction<FDFImageIO>::New());
 }
 
-FDFImageIOFactory::~FDFImageIOFactory()
-{
-}
+FDFImageIOFactory::~FDFImageIOFactory() {}
 
-const char*
+const char *
 FDFImageIOFactory::GetITKSourceVersion(void) const
 {
   return ITK_SOURCE_VERSION;
 }
 
-const char*
+const char *
 FDFImageIOFactory::GetDescription() const
 {
   return "FDF ImageIO Factory, allows the loading of Varian FDF images into Insight";
@@ -55,13 +49,14 @@ FDFImageIOFactory::GetDescription() const
 
 static bool FDFImageIOFactoryHasBeenRegistered;
 
-void IOFDF_EXPORT FDFImageIOFactoryRegister__Private(void)
+void IOFDF_EXPORT
+     FDFImageIOFactoryRegister__Private(void)
 {
-  if( ! FDFImageIOFactoryHasBeenRegistered )
-    {
+  if (!FDFImageIOFactoryHasBeenRegistered)
+  {
     FDFImageIOFactoryHasBeenRegistered = true;
     FDFImageIOFactory::RegisterOneFactory();
-    }
+  }
 }
 
 
