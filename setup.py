@@ -45,6 +45,6 @@ setup(
     keywords='ITK InsightToolkit FDF',
     url=r'https://github.com/InsightSoftwareConsortium/ITKIOFDF',
     install_requires=[
-        r'itk'
+        r'itk>=5.1.1'
     ]
     )
