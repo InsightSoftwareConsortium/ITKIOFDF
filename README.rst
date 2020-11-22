@@ -1,6 +1,8 @@
 ITKIOFDF
 ========
 
+.. image:: https://github.com/InsightSoftwareConsortium/ITKIOFDF/workflows/Build,%20test,%20package/badge.svg
+
 .. |CircleCI| image:: https://circleci.com/gh/InsightSoftwareConsortium/ITKIOFDF.svg?style=shield
     :target: https://circleci.com/gh/InsightSoftwareConsortium/ITKIOFDF
 
