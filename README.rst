@@ -3,21 +3,6 @@ ITKIOFDF
 
 .. image:: https://github.com/InsightSoftwareConsortium/ITKIOFDF/workflows/Build,%20test,%20package/badge.svg
 
-.. |CircleCI| image:: https://circleci.com/gh/InsightSoftwareConsortium/ITKIOFDF.svg?style=shield
-    :target: https://circleci.com/gh/InsightSoftwareConsortium/ITKIOFDF
-
-.. |TravisCI| image:: https://travis-ci.org/InsightSoftwareConsortium/ITKIOFDF.svg?branch=master
-    :target: https://travis-ci.org/InsightSoftwareConsortium/ITKIOFDF
-
-.. |AppVeyor| image:: https://img.shields.io/appveyor/ci/itkrobot/itkiofdf.svg
-    :target: https://ci.appveyor.com/project/itkrobot/itkiofdf
-
-=========== =========== ===========
-   Linux      macOS       Windows
-=========== =========== ===========
-|CircleCI|  |TravisCI|  |AppVeyor|
-=========== =========== ===========
-
 
 Overview
 --------
@@ -33,6 +18,10 @@ it, set::
   Module_IOFDF:BOOL=ON
 
 in ITK's CMake build configuration.
+
+Install the Python package with::
+
+  pip install itk-iofdf
 
 
 License
