@@ -13,7 +13,7 @@ except ImportError:
 
 setup(
     name='itk-iofdf',
-    version='1.0.1',
+    version='1.0.2',
     author='Glenn Pierce',
     author_email='glennpierce@gmail.com',
     packages=['itk'],
@@ -45,6 +45,6 @@ setup(
     keywords='ITK InsightToolkit FDF',
     url=r'https://github.com/InsightSoftwareConsortium/ITKIOFDF',
     install_requires=[
-        r'itk>=5.2rc3'
+        r'itk>=5.2.0.post3'
     ]
     )
