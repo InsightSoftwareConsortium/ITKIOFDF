@@ -14,7 +14,7 @@ ITKIOFDF
 Overview
 --------
 
-This is a module for the `Insight Toolkit (ITK) <http://itk.org>`_ to read or
+This is a module for the `Insight Toolkit (ITK) <https://itk.org>`_ to read or
 write the FDF image format.
 
 It contains an `ImageIO` class to read or write the FDF image format.
