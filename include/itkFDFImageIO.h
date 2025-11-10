@@ -136,11 +136,11 @@ private:
 } // end namespace itk
 
 
-#define RAISE_EXCEPTION()                                                                                              \
-  {                                                                                                                    \
-    ExceptionObject exception(__FILE__, __LINE__);                                                                     \
-    exception.SetDescription("File cannot be read");                                                                   \
-    throw exception;                                                                                                   \
+#define RAISE_EXCEPTION()                            \
+  {                                                  \
+    ExceptionObject exception(__FILE__, __LINE__);   \
+    exception.SetDescription("File cannot be read"); \
+    throw exception;                                 \
   }
 
 #endif
